@@ -20,6 +20,8 @@ SPCONV_FORCE_BUILD_CUDA = os.getenv("SPCONV_FORCE_BUILD_CUDA")
 PYTHON_VERSION = "{}.{}".format(sys.version_info.major, sys.version_info.minor)
 
 remove_plus = torch.__version__.find("+dev")
+if remove_plus == -1:
+    remove_plus = torch.__version__.find("+cu")  
 remove_dot = torch.__version__.find(".dev")
 
 PYTORCH_VERSION = torch.__version__
